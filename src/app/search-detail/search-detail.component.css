@@ -1,0 +1,7 @@
+import re
+from typing import List
+
+def clean_and_sort_emails(email_list: List[str]) -> List[str]:
+    email_pattern = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+    valid_emails = [email.strip().lower() for email in email_list if email_pattern.match(email.strip())]
+    return sorted(valid_emails)

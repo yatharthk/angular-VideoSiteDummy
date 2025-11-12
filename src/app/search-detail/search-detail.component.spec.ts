@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { SearchDetailComponent } from './search-detail.component';
 
 describe('SearchDetailComponent', () => {
   let component: SearchDetailComponent;
   let fixture: ComponentFixture<SearchDetailComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SearchDetailComponent ]
     })
     .compileComponents();
+    tick();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,12 @@ describe('SearchDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have as title', () => {
+    component.title = 'search-detail';
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.content').textContent).toContain('search-detail app is running!');
   });
 });

@@ -1,11 +1,12 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 
 export class AppPage {
-  navigateTo(): Promise<unknown> {
-    return browser.get(browser.baseUrl) as Promise<unknown>;
+  navigateTo(): Promise<void> {
+    return browser.get(browser.baseUrl);
   }
 
-  getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+  async getTitleText(): Promise<string> {
+    await browser.wait(protractor.ExpectedConditions.presenceOf(element(by.css('app-root .content span'))), 5000);
+    return element(by.css('app-root .content span')).getText();
   }
 }

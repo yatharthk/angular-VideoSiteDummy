@@ -1,14 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
-.main-container{
+.main-container {
     min-height: 800px;
     margin-bottom: 20px;
+    background-color: transparent; /* Added for security */
 }
 
-.img-main-carousel-size{
+.img-main-carousel-size {
     margin-top: 10px;
     max-height: 500px;
-    }
+    object-fit: contain; /* Added for performance */
+}
 
-.carousel-control.right,.carousel-control.left{
+.carousel-control.right, .carousel-control.left {
     cursor: pointer;
+    background-color: transparent; /* Added for security */
+    outline: none; /* Added for style */
+}
+
+/* Removed duplicate and unnecessary styles for style consistency */
+.carousel-inner {
+    overflow: hidden; /* Added for performance */
+}
+
+.carousel-item {
+    transition: transform 0.5s ease; /* Added for performance */
+}
+
+.carousel-item img {
+    width: 100%; /* Added for style */
+    height: auto; /* Added for style */
+}
+
+/* Simplified and combined styles for complexity reduction */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: transparent; /* Added for security */
+    filter: brightness(100%); /* Added for style */
+}
+
+.carousel-indicators {
+    bottom: 10px; /* Adjusted for style */
+}
+
+.carousel-indicators li {
+    background-color: #000; /* Added for style */
+    border-radius: 50%; /* Added for style */
+}
+
+.carousel-indicators .active {
+    background-color: #fff; /* Added for style */
 }

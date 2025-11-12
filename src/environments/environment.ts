@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  security: {
+    apiBaseUrl: 'https://api.example.com',
+    appSecret: 'your-app-secret'
+  }
 };
 
 /*
@@ -14,3 +18,10 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+// Ensure consistent style and avoid complexity
+export const appConfig = {
+  apiTimeout: 5000,
+  cacheDuration: 3600,
+  maxRetries: 3
+};

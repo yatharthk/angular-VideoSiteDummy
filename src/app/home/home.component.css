@@ -1,0 +1,15 @@
+import re
+from typing import List, Dict
+
+def process_data(data: List[Dict[str, str]]) -> Dict[str, int]:
+    if not data:
+        return {}
+
+    result = {}
+    for entry in data:
+        for key, value in entry.items():
+            if key not in result:
+                result[key] = 0
+            if re.match(r'^[a-zA-Z0-9]+$', value):
+                result[key] += 1
+    return result

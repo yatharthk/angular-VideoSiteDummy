@@ -1,0 +1,25 @@
+import hashlib
+import os
+from typing import Dict, List
+
+def secure_hash(data: str) -> str:
+    return hashlib.sha256(data.encode()).hexdigest()
+
+def process_data(data_list: List[str]) -> Dict[str, str]:
+    result = {}
+    for data in data_list:
+        if data:  # Check for non-empty data
+            secure_data = secure_hash(data)
+            result[data] = secure_data
+    return result
+
+def main():
+    user_input = os.getenv('USER_INPUT', '')  # Use environment variable for input
+    if user_input:
+        data_list = user_input.split(',')
+        processed_data = process_data(data_list)
+        for original, hashed in processed_data.items():
+            print(f"Original: {original}, Hashed: {hashed}")
+
+if __name__ == "__main__":
+    main()
