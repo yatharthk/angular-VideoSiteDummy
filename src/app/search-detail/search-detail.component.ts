@@ -9,43 +9,37 @@ import { VideoService } from '../video.service';
   styleUrls: ['./search-detail.component.css'],
   providers:[VideoService]
 })
-export class SearchDetailComponent implements OnInit,OnDestroy {
+export class SearchDetailComponent implements OnInit, OnDestroy {
 
-  private routeSub:any;
-  searchTerm:string;
-  req:any;
-  videoList:[Video];
-  constructor(private route:ActivatedRoute,private videoService:VideoService) { }
+  private routeSub: any;
+  searchTerm: string;
+  req: any;
+  videoList: Video[];
+
+  constructor(private route: ActivatedRoute, private videoService: VideoService) { }
 
   ngOnInit(): void {
-    this.routeSub=this.route.params.subscribe(
-      params=>{
-        // console.log("param",params['searchQuery']);
-        this.searchTerm=params['searchQuery'];
-        
+    this.routeSub = this.route.params.subscribe(
+      params => {
+        this.searchTerm = params['searchQuery'];
       }
     );
     this.search(this.searchTerm);
   }
 
-  search(query){
-    let videoListNew=[];
-    this.req=this.videoService.search(query).subscribe(data=>{
-      videoListNew=<[Video]>data;
-      // console.log(data);
-      
-      // console.log(this.videoList);
-      this.videoList=<[Video]>videoListNew;
-    })
+  search(query: string): void {
+    let videoListNew: Video[] = [];
+    this.req = this.videoService.search(query).subscribe(data => {
+      videoListNew = data as Video[];
+      this.videoList = videoListNew;
+    });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void {
     this.routeSub.unsubscribe();
   }
 
-  getEmbedUrl(videoItem){
-    return "https://www.youtube.com/embed/"+videoItem.embed;
-    
+  getEmbedUrl(videoItem: Video): string {
+    return "https://www.youtube.com/embed/" + videoItem.embed;
   }
-
 }
