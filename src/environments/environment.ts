@@ -14,3 +14,6 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+// Fix for performance issue: Ensure environment.prod.ts is correctly set up for production
+// environment.prod.ts should have production: true and any other production-specific configurations
