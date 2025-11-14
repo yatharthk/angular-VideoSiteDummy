@@ -2,11 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-//third party imports
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import {CarouselModule} from 'ngx-bootstrap/carousel';
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
-
 
 @NgModule({
   declarations: [
@@ -38,7 +34,6 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

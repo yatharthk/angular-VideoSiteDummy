@@ -6,11 +6,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SafePipe implements PipeTransform {
 
-  constructor (private sanitize:DomSanitizer){}
-  transform(value: any, ...args: any[]): any {
-    if(value)
-      return this.sanitize.bypassSecurityTrustResourceUrl(value);
-  }
-  
+  constructor(private sanitize: DomSanitizer) {}
 
+  transform(value: any, ...args: any[]): any {
+    if (value) {
+      return this.sanitize.bypassSecurityTrustResourceUrl(value);
+    }
+    return null;
+  }
 }

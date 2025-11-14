@@ -4,13 +4,13 @@ import { browser, logging } from 'protractor';
 describe('workspace-project App', () => {
   let page: AppPage;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('videoSite app is running!');
+  it('should display welcome message', async () => {
+    await page.navigateTo();
+    expect(await page.getTitleText()).toEqual('videoSite app is running!');
   });
 
   afterEach(async () => {
