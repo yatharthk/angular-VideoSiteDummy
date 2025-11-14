@@ -1,5 +1,4 @@
 <div class="jumbotron">
-
 <div class="container col-sm-12">
 <carousel class="text-center">
 
@@ -13,7 +12,6 @@
             <p><a class="btn btn-primary" routerLink="videos/">View Videos</a></p>
         </div>
     </slide>
-
 
     <slide *ngFor="let imageObj of homeImageList">
         <a class="" routerLink="videos/{{imageObj.slug}}" (click)="preventNormal($event,imageObj)">
