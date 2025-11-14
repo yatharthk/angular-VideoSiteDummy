@@ -7,21 +7,6 @@
     <app-search  [queryFromParent]="searchTerm"></app-search>
 </div>
 
-<!-- 
-<div *ngFor="let video of videoList">
-    <a routerLink="{{video.slug}}">{{video.name}}</a>
-
-
-    <div *ngIf="video.embed">
-        <iframe width="706" height="397" [src]="getEmbedUrl(video) | sanitizeUrl" 
-        title="YouTube video player"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen >
-        </iframe>
-    </div >
-</div> -->
-
 <div class="row">
     
     <div *ngFor="let video of videoList" class="col-sm">
@@ -30,9 +15,9 @@
                 <img [src]="video.image" alt="{{video.name}} image" class="img-thumbnail">
             </a>
                 <div class="caption">
-                    <h3><a routerLink="{{video.slug}}" routerLinkActive="active">{{video.name}}</a></h3>
-                    <p><a routerLink="{{video.slug}}" routerLinkActive="active" class="btn btn-primary" role="button">View</a></p>
+                    <h3><a routerLink="/videos/{{video.slug}}" routerLinkActive="active">{{video.name}}</a></h3>
+                    <p><a routerLink="/videos/{{video.slug}}" routerLinkActive="active" class="btn btn-primary" role="button">View</a></p>
                 </div>
             </div>   
         </div>
-</div> 
+</div>
