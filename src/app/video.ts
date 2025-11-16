@@ -1,9 +1,9 @@
 export class Video{
     constructor(
-        public name,
-        public slug,
-        public embed,
-        public image?,
-        public featured?
+        public name: string,
+        public slug: string,
+        public embed: string,
+        public image?: string,
+        public featured?: boolean
     ){}
 }
