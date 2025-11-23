@@ -11,7 +11,7 @@ export class VideoListComponent implements OnInit,OnDestroy {
 
   req:any;
   // someItem="<h1>Hello There</h1>"
-  videoList:[];
+  videoList:any[];
 
   constructor(private videoService:VideoService) {}
   
@@ -24,7 +24,7 @@ export class VideoListComponent implements OnInit,OnDestroy {
 
   this.req=this.videoService.list().subscribe(data=>{
     console.log(data);
-    this.videoList=JSON.parse(data);
+    this.videoList=data;
     
   })
   }
@@ -32,11 +32,13 @@ export class VideoListComponent implements OnInit,OnDestroy {
 
 
   ngOnDestroy(){
-    this.req.unsubscribe();
+    if(this.req){
+      this.req.unsubscribe();
+    }
   }
   
 
-  getEmbedUrl(videoItem){
+  getEmbedUrl(videoItem:any){
     return "https://www.youtube.com/embed/"+videoItem.embed;
     
   }
