@@ -10,7 +10,7 @@ describe('VideoListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ VideoListComponent ]
     })
-    .compileComponents();
+   .compileComponents();
   }));
 
   beforeEach(() => {

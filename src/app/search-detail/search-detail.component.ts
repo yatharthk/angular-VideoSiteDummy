@@ -14,7 +14,7 @@ export class SearchDetailComponent implements OnInit,OnDestroy {
   private routeSub:any;
   searchTerm:string;
   req:any;
-  videoList:[Video];
+  videoList:Video[];
   constructor(private route:ActivatedRoute,private videoService:VideoService) { }
 
   ngOnInit(): void {
@@ -28,22 +28,22 @@ export class SearchDetailComponent implements OnInit,OnDestroy {
     this.search(this.searchTerm);
   }
 
-  search(query){
-    let videoListNew=[];
+  search(query: string){
+    let videoListNew: Video[] = [];
     this.req=this.videoService.search(query).subscribe(data=>{
-      videoListNew=<[Video]>data;
+      videoListNew=data as Video[];
       // console.log(data);
       
       // console.log(this.videoList);
-      this.videoList=<[Video]>videoListNew;
+      this.videoList=videoListNew;
     })
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void {
     this.routeSub.unsubscribe();
   }
 
-  getEmbedUrl(videoItem){
+  getEmbedUrl(videoItem: Video): string {
     return "https://www.youtube.com/embed/"+videoItem.embed;
     
   }
