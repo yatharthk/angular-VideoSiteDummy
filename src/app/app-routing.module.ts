@@ -5,14 +5,11 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { VideoListComponent } from './video-list/video-list.component';
 
-
 const routes: Routes = [
-  
-  {path:"",component:HomeComponent},
-  {path:"videos",component:VideoListComponent},
-  {path:"videos/:slug",component:VideoDetailComponent},
-  {path:"search",component:SearchDetailComponent}
-  
+  { path: "", component: HomeComponent },
+  { path: "videos", component: VideoListComponent },
+  { path: "videos/:slug", component: VideoDetailComponent },
+  { path: "search", component: SearchDetailComponent }
 ];
 
 @NgModule({

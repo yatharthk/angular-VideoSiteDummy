@@ -1,17 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { VideoListComponent } from './video-list.component';
 
 describe('VideoListComponent', () => {
   let component: VideoListComponent;
   let fixture: ComponentFixture<VideoListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ VideoListComponent ]
     })
-    .compileComponents();
-  }));
+   .compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VideoListComponent);

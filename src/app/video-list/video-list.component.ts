@@ -10,35 +10,24 @@ import { VideoService } from '../video.service';
 export class VideoListComponent implements OnInit,OnDestroy {
 
   req:any;
-  // someItem="<h1>Hello There</h1>"
-  videoList:[];
+  videoList:any[];
 
   constructor(private videoService:VideoService) {}
   
   ngOnInit(): void {
-  // this.req=this.http.get('assets/json/videos.json').subscribe(data=>{
-  //   console.log(data);
-  //   this.videoList=data;
-    
-  // })
-
-  this.req=this.videoService.list().subscribe(data=>{
-    console.log(data);
-    this.videoList=JSON.parse(data);
-    
-  })
+    this.req=this.videoService.list().subscribe(data=>{
+      console.log(data);
+      this.videoList=data;
+    })
   }
-
-
 
   ngOnDestroy(){
-    this.req.unsubscribe();
+    if(this.req){
+      this.req.unsubscribe();
+    }
   }
   
-
-  getEmbedUrl(videoItem){
+  getEmbedUrl(videoItem:any){
     return "https://www.youtube.com/embed/"+videoItem.embed;
-    
   }
-
 }

@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { VideoDetailComponent } from './video-detail.component';
 
 describe('VideoDetailComponent', () => {
@@ -10,7 +9,7 @@ describe('VideoDetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ VideoDetailComponent ]
     })
-    .compileComponents();
+   .compileComponents();
   }));
 
   beforeEach(() => {
